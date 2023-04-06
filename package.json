@@ -13,9 +13,9 @@
   "author": "jamie nadel",
   "license": "ISC",
   "dependencies": {
-    "inquirer": "^9.1.5"
+    "inquirer": "^8.2.4"
   },
   "devDependencies": {
-    "jest": "^29.5.0"
+    "jest": "^24.9.0"
   }
 }
