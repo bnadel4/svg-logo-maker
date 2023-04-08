@@ -5,6 +5,7 @@ const Square = require('./lib/square');
 const Circle = require('./lib/circle');
 const Triangle = require('./lib/triangle');
 const Svg = require('./lib/svg');
+const { start } = require('repl');
 let shapeElement = '';
 
 function runCode() {
@@ -55,12 +56,18 @@ function runCode() {
 
   inquirer.prompt(questions)
   .then((answers) => {
-    processAnswers(answers);
-    const svg = new Svg(renderTextElement(answers.textColor, answers.text), shapeElement).render();
-    fs.writeFile('./examples/logo.svg', svg, (err) => {
-    if (err) throw err;
-    console.log('Generated logo.svg');
-    });
+
+    if (answers.text.length > 3) {
+      console.log('Please enter 3 characters or less for the first prompt. Try again.');
+      runCode();
+    } else {
+      processAnswers(answers);
+      const svg = new Svg(renderTextElement(answers.textColor, answers.text), shapeElement).render();
+      fs.writeFile('./examples/logo.svg', svg, (err) => {
+      if (err) throw err;
+      console.log('Generated logo.svg');
+      });
+    }
   });
 };
 
