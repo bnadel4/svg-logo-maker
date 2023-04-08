@@ -5,7 +5,6 @@ const Square = require('./lib/square');
 const Circle = require('./lib/circle');
 const Triangle = require('./lib/triangle');
 const Svg = require('./lib/svg');
-const { start } = require('repl');
 let shapeElement = '';
 
 function runCode() {
