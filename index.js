@@ -17,7 +17,7 @@ const questions = [
   {
     type: 'input',
     name: 'textColor',
-    message: 'Enter a text color.'
+    message: 'To choose a text color, enter a color keyword (OR a hexadecimal number).'
   },
   {
     type: 'list',
