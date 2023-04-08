@@ -32,7 +32,7 @@ const questions = [
   {
     type: 'input',
     name: 'shapeColor',
-    message: 'Enter a shape color.'
+    message: 'To choose a shape color, enter a color keyword (OR a hexadecimal number).'
   },
 ];
 
