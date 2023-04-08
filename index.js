@@ -48,12 +48,17 @@ function processAnswers(answers) {
   }
 }
 
+function renderTextElement(textColor, text) {
+  return `<text x="150" y="125" font-size="60" 
+  text-anchor="middle" fill="${textColor}">${text}</text>`
+}
+
 inquirer.prompt(questions)
 .then((answers) => {
-  console.log(answers);
-  // const svg = generateSVG(answers);
-  // writeFile('./examples/logo.svg', svg, (err) => {
-  //   if (err) throw err;
-  //   console.log('Generated logo.svg');
-  // });
+  processAnswers(answers);
+  const svg = new Svg(renderTextElement(answers.textColor, answers.text), shapeElement).render();
+  fs.writeFile('./examples/logo.svg', svg, (err) => {
+  if (err) throw err;
+  console.log('Generated logo.svg');
+  });
 });
